@@ -1,0 +1,52 @@
+tag: 
+learn: normal
+env: FrankaMazeEnv-v1
+render: True
+scenario: lift_maze
+control_mode: ik_controller
+model_path: /home/qiao/RL-Dyn-Env-main/log/FrankaMazeEnv-v1-lift_maze/halfway3
+play_epoch: best
+epochs: 200
+cycles: 50
+num_envs: 10
+train_batches: 50
+batch_size: 256
+timesteps: 80
+env_n_substeps: 100
+num_obst: 1
+gamma: 0.98
+pi_lr: 0.001
+q_lr: 0.001
+act_l2: 1.0
+polyak: 0.95
+actor_layer_sizes: [512, 256, 128]
+actor_batch_norm: [False, False, False]
+critic_layer_sizes: [512, 256, 128]
+critic_batch_norm: [False, False, False]
+obj_lost_reward: -0.3
+collision_reward: -0.5
+clip_return: True
+reward_min: -1.0
+reward_max: 0.0
+eps_act: 0.3
+std_act: 0.2
+buffer_size: 20000
+buffer_type: energy
+her: future
+her_ratio: 0.8
+pool_rule: full
+goal_based: True
+cur_acc: 0.0
+obs_dims: [82]
+acts_dims: [4]
+compute_reward: <bound method FrankaMazeEnv.compute_reward of <envs.franka_maze_env.FrankaMazeEnv object at 0x7f583306a1f0>>
+*** agent initialization complete ***
+*** tester initialization complete ***
+
+
+Epoch               Episodes            TimeCost(sec)       Actor_Loss          Critic_Loss         Success             CollisionsAvg       ExRewardAvg         Range               
+1/200               500                 242.67              11.69               0.35                0.96                5.51                -57.08              0.1                 
+2/200               1000                248.49              11.68               0.3                 1.0                 1.02                -47.73              0.1                 
+3/200               1500                252.23              12.17               0.28                0.95                1.04                -49.82              0.1                 
+4/200               2000                253.46              11.25               0.27                1.0                 1.2                 -47.51              0.1                 
+5/200               2500                257.72              10.56               0.27                1.0                 2.19                -46.64              0.1                 

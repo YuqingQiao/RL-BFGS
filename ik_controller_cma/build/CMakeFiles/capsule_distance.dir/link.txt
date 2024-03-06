@@ -1,0 +1,1 @@
+/bin/c++ -fPIC  -O3 -march=native -shared -Wl,-soname,libcapsule_distance.so -o libcapsule_distance.so CMakeFiles/capsule_distance.dir/src/capsule_distance.cpp.o 

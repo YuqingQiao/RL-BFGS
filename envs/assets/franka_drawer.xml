@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco>
+    <include file="franka/franka_assets.xml"/>
+
+    <compiler inertiafromgeom='auto' angle="radian" meshdir="franka/meshes" autolimits="true"/>
+
+	<option timestep="0.002">
+		<flag warmstart="enable"/>
+	</option>
+
+	<visual>
+		<global offwidth="2560" offheight="1920" />
+    </visual>
+
+    <asset>
+        <texture name="wood1" file="franka/textures/wood1.png" type="cube"/>
+            <material shininess=".1" name="wood1" texture="wood1" specular="0.4"/>
+		<texture name="light_wood_v2" file="franka/textures/light_wood_v2.png" type="cube"/>
+        	<material shininess=".1" name="light_wood_v2" texture="light_wood_v2" specular="0.4"/>
+        <texture type="skybox" builtin="gradient" rgb1="0.0 0.0 0.0" rgb2="0.4 0.6 0.8" width="32" height="32"/>
+        <material name="floor_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"/>
+        <material name="table_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.93 0.93 0.93 1"/>
+        <material name="block_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"/>
+    </asset>
+
+    <worldbody>
+        <include file="franka/mocap_chain.xml"/>
+
+        <geom name="floor0" pos="1.05 0.75 0" size="1 0.70 1" type="plane" condim="3" material="floor_mat"/>
+
+        <!-- Robot -->
+        <body name="panda_table" pos="0.5 0.75 0.2">
+			<geom name="panda_table" type='box' size='0.12 0.2 0.2' pos='0.25 0 0' material="table_mat"/>
+			<body name="panda_base" pos="0.3 0 0.2"/>
+		</body>
+
+		<!-- Table -->
+		<body pos="1.3 0.75 0.2" name="table0">
+			<geom name="table0" size="0.2 0.45 0.2" type="box" mass="2000" rgba="0.93 0.93 0.93 0"/>
+			<site name="table_visual_1" type="box" size="0.2 0.45 0.01" pos="0 0 0.18"  material="table_mat"/>
+			<site name="table_visual_2" type="box" size="0.02 0.02 0.19" pos="0 0 0"  material="table_mat"/>
+			<site name="table_visual_3" type="box" size="0.1 0.1 0.01" pos="0 0 -0.2"  material="table_mat"/>
+		</body>
+
+		<!-- Workspace: Object, Target and Obstacles may only be spawned inside this area -->
+		<site name="workspace" pos='1.3 0.75 0.5' size="0.2 0.48 0.1" rgba="1 1 1 0.05" type="box"/>
+
+		<!-- Target -->
+		<site name="target0" pos="1.3 0.75 0.42" size="0.02 0.02 0.02" rgba="1 0 0 1" type="sphere"/>
+
+		<!-- Object -->
+		<body name="object0" pos="0.025 0.025 0.025">
+			<joint name="object0:joint" type="free" damping="0.01"/>
+			<geom name="object0" size="0.02 0.02 0.02" type="box" condim="4" material="block_mat" mass="0.01"/>
+			<site name="object0" pos="0 0 0" size="0.01 0.01 0.01" rgba="0 0 0 1" type="sphere"/>
+		</body>
+
+		<!-- Obstacles -->
+		<body name="obstacle0" pos="0.7 0.6 0.42" gravcomp="1">
+			<joint name="obstacle0:joint" type="free"/>
+			<geom name="obstacle0" size="0.02 0.02 0.02" type="box" condim="3" rgba="0 0 1 1" material="block_mat" mass="10000"/>
+		</body>
+		<body name="obstacle0:site" pos="0.7 0.6 0.42">
+			<site name="obstacle0" size="0.02 0.02 0.02" type="box" rgba="0 0 1 0.05"/>
+		</body>
+
+		<body name="obstacle1" pos="0.75 0.6 0.42" gravcomp="1">
+			<joint name="obstacle1:joint" type="free"/>
+			<geom name="obstacle1" size="0.02 0.02 0.02" type="box" condim="3" rgba="0 1 1 0" material="block_mat" mass="10000"/>
+			<site name="obst1_visual_1" type="box" size="0.18 0.025 0.002" pos="0 0 -0.02" rgba="0 0 0.8 1"/>
+			<site name="obst1_visual_2" type="box" size="0.02 0.025 0.025" pos="-0.2 0 0" rgba="0 0 1 1"/>
+			<site name="obst1_visual_3" type="box" size="0.02 0.025 0.025" pos="0.2 0 0" rgba="0 0 1 1"/>
+			<site name="obst1_visual_4" type="cylinder" size="0.01 0.2" quat="1 0 1 0" pos="0 0 0" rgba="1 0.6 1 1"/>
+<!--			quat="0.7 0 0 -0.7"-->
+		</body>
+		<body name="obstacle1:site" pos="0.75 0.6 0.42">
+			<site name="obstacle1" size="0.02 0.02 0.02" type="box" rgba="0 0 1 0.05"/>
+		</body>
+
+		<body name="obstacle2" pos="0.8 0.6 0.42" gravcomp="1">
+			<joint name="obstacle2:joint" type="free"/>
+			<geom name="obstacle2" size="0.02 0.02 0.02" type="box" condim="3" rgba="1 0 1 1" material="block_mat" mass="10000"/>
+		</body>
+		<body name="obstacle2:site" pos="0.8 0.6 0.42">
+			<site name="obstacle2" size="0.02 0.02 0.02" type="box" rgba="0 0 1 0.05"/>
+		</body>
+
+<!--	 drawer-->
+		<body name="obstacle3" pos="0.3 0.5 0.45" gravcomp="1">
+			<joint name="obstacle3:joint" type="free"/>
+			<geom name="obstacle3" size="0.1 0.001 0.05" type="box" condim="3" material="light_wood_v2" mass="10000"/>
+			<site name="drawer_visual_1" type="box" size="0.155 0.005 0.03" pos="0 -0.005 0"  material="wood1"/>
+		</body>
+		<body name="obstacle3:site" pos="0.3 0.5 0.45">
+			<site name="obstacle3" size="0.1 0.001 0.05" type="box" rgba="0 0 1 0.05"/>
+		</body>
+
+		<body name="obstacle4" pos="0.3 0.3 0.45" gravcomp="1">
+			<joint name="obstacle4:joint" type="free"/>
+			<geom name="obstacle4" size="0.1 0.001 0.05" type="box" condim="3" material="light_wood_v2" mass="10000"/>
+			<site name="drawer_handle_visual_1" type="box" size="0.06 0.01 0.01" pos="0 -0.06 0"  material="wood1"/>
+			<site name="drawer_handle_visual_2" type="box" size="0.01 0.04 0.01" pos="0.06 -0.03 0"  material="wood1"/>
+			<site name="drawer_handle_visual_3" type="box" size="0.01 0.04 0.01" pos="-0.06 -0.03 0"  material="wood1"/>
+			<site name="drawer_visual_2" type="box" size="0.156 0.125 0.0012" pos="0 0.125 -0.032"  material="wood1"/>
+		</body>
+		<body name="obstacle4:site" pos="0.3 0.3 0.45">
+			<site name="obstacle4" size="0.1 0.001 0.05" type="box" rgba="0 0 1 0.05"/>
+		</body>
+
+		<body name="obstacle5" pos="0.405 0.4 0.45" gravcomp="1">
+			<joint name="obstacle5:joint" type="free"/>
+			<geom name="obstacle5" size="0.001 0.1 0.05" type="box" condim="3" material="light_wood_v2" mass="10000"/>
+		</body>
+		<body name="obstacle5:site" pos="0.405 0.4 0.45">
+			<site name="obstacle5" size="0.001 0.1 0.05" type="box" rgba="0 0 1 0.05"/>
+		</body>
+
+		<body name="obstacle6" pos="0.195 0.4 0.45" gravcomp="1">
+			<joint name="obstacle6:joint" type="free"/>
+			<geom name="obstacle6" size="0.001 0.1 0.05" type="box" condim="3" material="light_wood_v2" mass="10000"/>
+
+		</body>
+		<body name="obstacle6:site" pos="0.195 0.4 0.45">
+			<site name="obstacle6" size="0.001 0.1 0.05" type="box" rgba="0 0 1 0.05"/>
+		</body>
+
+<!--		<body name="drawer" pos="1.3 0.4 0.42">-->
+<!--          <geom rgba="1 0.3 0.3 0.5" type="box" contype="1" size="0.1 0.1 0.001" name="drawer_bottom" conaffinity="1" pos="0 0 0.005" mass="1000" material="light_wood_v2" />-->
+<!--          <geom rgba="1 0.3 0.3 0.5" type="box" solimp="0.99 0.99 0.01" contype="1" size="0.1 0.001 0.05" name="obstacle3" conaffinity="1" pos="0.0 0.1 0.054" mass="1000" solref="0.01 1" material="light_wood_v2"/>-->
+<!--          <geom rgba="1 0.3 0.3 0.5" type="box" solimp="0.99 0.99 0.01" contype="1" size="0.1 0.001 0.05" name="obstacle4" conaffinity="1" pos="0.0 -0.1 0.054" mass="1000" solref="0.01 1" material="light_wood_v2"/>-->
+<!--          <geom rgba="1 0.3 0.3 0.5" type="box" solimp="0.99 0.99 0.01" contype="1" size="0.001 0.1 0.05" name="obstacle5" conaffinity="1" pos="0.1 0 0.054" mass="1000" solref="0.01 1" material="light_wood_v2"/>-->
+<!--          <geom rgba="1 0.3 0.3 0.5" type="box" solimp="0.99 0.99 0.01" contype="1" size="0.001 0.1 0.05" name="obstacle6" conaffinity="1" pos="-0.101 0 0.054" mass="1000" solref="0.01 1" material="light_wood_v2"/>-->
+
+<!--        </body>-->
+
+		<light directional="true" ambient="0.2 0.2 0.2" diffuse="0.8 0.8 0.8" specular="0.3 0.3 0.3" castshadow="false" pos="0 0 4" dir="0 0 -1"/>
+
+    </worldbody>
+
+    <include file="/franka/mocap_actuator.xml"/>
+
+</mujoco>

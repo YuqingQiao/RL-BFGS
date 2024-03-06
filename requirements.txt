@@ -1,0 +1,10 @@
+numpy==1.21.6
+gymnasium==0.27.1
+gymnasium-robotics==1.2.0
+mujoco==2.3.2
+tensorflow==2.11.0
+pynput==1.7.6
+frankx==0.2.0
+opencv-python==4.5.5.62
+pyrealsense2==2.53.1.4623
+imageio==2.25.0

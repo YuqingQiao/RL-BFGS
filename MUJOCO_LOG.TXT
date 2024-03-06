@@ -1,0 +1,27 @@
+Sat Oct 21 11:38:10 2023
+WARNING: mju_openResource: unknown file '/home/qiao/RL-Dyn-Env-main/envs/assets/kuka/kuka_shared_config0.xml'
+
+Sat Oct 21 11:38:24 2023
+WARNING: mju_openResource: unknown file '/home/qiao/RL-Dyn-Env-main/envs/assets/kuka/kuka_xyz_base0.xml'
+
+Sun Oct 22 10:49:08 2023
+WARNING: mju_openResource: unknown file '/home/qiao/RL-Dyn-Env-main/envs/assets/gripper/gripper_collision.xml'
+
+Sun Oct 22 10:53:59 2023
+WARNING: mju_openResource: unknown file '/home/qiao/RL-Dyn-Env-main/envs/assets/kuka_R800/kuka_assets.xml'
+
+Sun Oct 22 10:55:09 2023
+WARNING: mju_openResource: unknown file '/home/qiao/RL-Dyn-Env-main/envs/assets/gripper/gripper_collision.xml'
+
+Sun Nov 26 14:12:28 2023
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 8.1600.
+
+Sun Nov 26 14:13:39 2023
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 3.0400.
+
+Fri Dec  1 11:07:29 2023
+WARNING: mju_openResource: unknown file '/home/qiao/RL-Dyn-Env-main/envs/assets/.franka/franka_assets.xml'
+
+Sat Jan 20 10:50:47 2024
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 1.2000.
+

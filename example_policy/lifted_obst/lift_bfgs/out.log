@@ -1,0 +1,109 @@
+tag: 
+learn: normal
+env: RandDynObstEnv-v1
+render: True
+scenario: lifted_obst
+control_mode: ik_controller
+model_path: /home/qiao/RL-Dyn-Env-main/log/RandDynObstEnv-v1-lifted_obst/lift1
+play_epoch: best
+epochs: 50
+cycles: 50
+num_envs: 10
+train_batches: 50
+batch_size: 256
+timesteps: 80
+env_n_substeps: 80
+num_obst: 1
+gamma: 0.98
+pi_lr: 0.001
+q_lr: 0.001
+act_l2: 1.0
+polyak: 0.95
+actor_layer_sizes: [512, 256, 128]
+actor_batch_norm: [False, False, False]
+critic_layer_sizes: [512, 256, 128]
+critic_batch_norm: [False, False, False]
+obj_lost_reward: -0.3
+collision_reward: -0.5
+clip_return: True
+reward_min: -1.0
+reward_max: 0.0
+eps_act: 0.3
+std_act: 0.2
+buffer_size: 20000
+buffer_type: energy
+her: future
+her_ratio: 0.8
+pool_rule: full
+goal_based: True
+cur_acc: 0.0
+obs_dims: [46]
+acts_dims: [4]
+compute_reward: <bound method RandDynObstEnv.compute_reward of <envs.rand_dyn_env.RandDynObstEnv object at 0x7f1f5d3adfd0>>
+*** agent initialization complete ***
+*** tester initialization complete ***
+
+
+Epoch               Episodes            TimeCost(sec)       Actor_Loss          Critic_Loss         Success             CollisionsAvg       ExRewardAvg         Range               
+1/50                500                 182.91              9.77                0.47                0.93                0.0                 -47.46              0.1                 
+2/50                1000                181.85              9.52                0.48                0.95                0.0                 -44.68              0.1                 
+3/50                1500                181.59              9.57                0.48                0.98                0.0                 -46.55              0.1                 
+4/50                2000                182.22              9.54                0.5                 0.85                0.0                 -52.67              0.1                 
+5/50                2500                183.73              9.59                0.48                0.92                0.0                 -49.03              0.1                 
+6/50                3000                185.8               9.5                 0.5                 0.95                0.0                 -45.55              0.1                 
+7/50                3500                184.99              9.64                0.51                0.99                0.0                 -43.3               0.1                 
+8/50                4000                184.91              9.51                0.49                0.93                0.0                 -47.64              0.1                 
+9/50                4500                185.42              9.69                0.5                 0.94                0.0                 -47.38              0.1                 
+10/50               5000                186.1               9.57                0.48                0.94                0.0                 -47.99              0.1                 
+
+
+Epoch               Episodes            TimeCost(sec)       Actor_Loss          Critic_Loss         Success             CollisionsAvg       ExRewardAvg         Range               
+11/50               5500                185.97              9.43                0.47                0.98                0.01                -45.11              0.1                 
+12/50               6000                184.95              9.45                0.47                0.96                0.0                 -44.59              0.1                 
+13/50               6500                185.81              9.57                0.46                0.98                0.0                 -44.49              0.1                 
+14/50               7000                186.02              9.34                0.47                0.98                0.0                 -43.98              0.1                 
+15/50               7500                187.0               9.45                0.48                0.99                0.0                 -45.0               0.1                 
+16/50               8000                185.66              9.38                0.48                0.96                0.0                 -46.19              0.1                 
+17/50               8500                186.07              9.61                0.48                0.96                0.0                 -46.12              0.1                 
+18/50               9000                186.87              9.62                0.47                0.98                0.0                 -42.31              0.1                 
+19/50               9500                186.94              9.45                0.46                1.0                 0.0                 -43.76              0.1                 
+20/50               10000               187.35              9.34                0.45                0.96                0.0                 -45.33              0.1                 
+
+
+Epoch               Episodes            TimeCost(sec)       Actor_Loss          Critic_Loss         Success             CollisionsAvg       ExRewardAvg         Range               
+21/50               10500               187.33              9.38                0.46                0.95                0.0                 -44.29              0.1                 
+22/50               11000               187.56              9.3                 0.45                0.97                0.0                 -42.04              0.1                 
+23/50               11500               188.39              9.2                 0.46                0.99                0.0                 -39.61              0.1                 
+24/50               12000               187.77              9.14                0.44                0.97                0.0                 -44.27              0.1                 
+25/50               12500               188.37              9.19                0.44                0.99                0.0                 -39.2               0.1                 
+26/50               13000               188.28              9.16                0.44                0.99                0.0                 -41.18              0.1                 
+27/50               13500               188.03              9.3                 0.43                0.99                0.0                 -41.11              0.1                 
+28/50               14000               190.44              9.23                0.44                0.99                0.0                 -41.8               0.1                 
+29/50               14500               188.65              9.15                0.43                0.98                0.0                 -40.1               0.1                 
+30/50               15000               189.47              9.14                0.44                0.96                0.0                 -42.71              0.1                 
+
+
+Epoch               Episodes            TimeCost(sec)       Actor_Loss          Critic_Loss         Success             CollisionsAvg       ExRewardAvg         Range               
+31/50               15500               186.16              9.18                0.43                0.89                0.0                 -49.37              0.1                 
+32/50               16000               187.71              9.24                0.43                0.98                0.0                 -41.56              0.1                 
+33/50               16500               188.4               9.19                0.42                0.96                0.0                 -42.84              0.1                 
+34/50               17000               188.21              9.1                 0.41                0.99                0.0                 -42.13              0.1                 
+35/50               17500               187.15              9.08                0.41                0.97                0.0                 -41.28              0.1                 
+36/50               18000               188.26              9.12                0.41                0.98                0.0                 -39.66              0.1                 
+37/50               18500               188.28              9.15                0.41                0.97                0.0                 -40.97              0.1                 
+38/50               19000               187.36              9.15                0.42                0.97                0.0                 -40.93              0.1                 
+39/50               19500               187.24              9.09                0.44                0.94                0.0                 -41.97              0.1                 
+40/50               20000               187.97              9.13                0.41                0.95                0.0                 -41.28              0.1                 
+
+
+Epoch               Episodes            TimeCost(sec)       Actor_Loss          Critic_Loss         Success             CollisionsAvg       ExRewardAvg         Range               
+41/50               20500               187.18              9.04                0.43                0.97                0.0                 -44.45              0.1                 
+42/50               21000               189.11              9.09                0.43                0.98                0.0                 -40.62              0.1                 
+43/50               21500               188.55              9.06                0.41                0.99                0.0                 -40.19              0.1                 
+44/50               22000               188.26              9.08                0.4                 0.97                0.0                 -42.92              0.1                 
+45/50               22500               189.78              9.03                0.42                0.97                0.0                 -39.52              0.1                 
+46/50               23000               188.82              8.92                0.4                 0.98                0.01                -40.21              0.1                 
+47/50               23500               188.7               8.95                0.42                1.0                 0.0                 -40.41              0.1                 
+48/50               24000               188.73              8.92                0.41                0.99                0.0                 -41.66              0.1                 
+49/50               24500               188.94              8.89                0.38                0.98                0.0                 -40.77              0.1                 
+50/50               25000               188.25              8.93                0.39                0.98                0.0                 -40.38              0.1                 
