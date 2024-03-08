@@ -1,0 +1,80 @@
+tag: 
+learn: normal
+env: FrankaMazeEnv-v1
+render: True
+scenario: lift_maze
+control_mode: ik_controller
+model_path: /home/qiao/RL-Dyn-Env-main/log/FrankaMazeEnv-v1-lift_maze/halfway_bfgs1
+play_epoch: best
+epochs: 200
+cycles: 50
+num_envs: 10
+train_batches: 50
+batch_size: 256
+timesteps: 80
+env_n_substeps: 100
+num_obst: 1
+gamma: 0.98
+pi_lr: 0.001
+q_lr: 0.001
+act_l2: 1.0
+polyak: 0.95
+actor_layer_sizes: [512, 256, 128]
+actor_batch_norm: [False, False, False]
+critic_layer_sizes: [512, 256, 128]
+critic_batch_norm: [False, False, False]
+obj_lost_reward: -0.3
+collision_reward: -0.5
+clip_return: True
+reward_min: -1.0
+reward_max: 0.0
+eps_act: 0.3
+std_act: 0.2
+buffer_size: 20000
+buffer_type: energy
+her: future
+her_ratio: 0.8
+pool_rule: full
+goal_based: True
+cur_acc: 0.0
+obs_dims: [82]
+acts_dims: [4]
+compute_reward: <bound method FrankaMazeEnv.compute_reward of <envs.franka_maze_env.FrankaMazeEnv object at 0x7f53342361f0>>
+*** agent initialization complete ***
+*** tester initialization complete ***
+
+
+Epoch               Episodes            TimeCost(sec)       Actor_Loss          Critic_Loss         Success             CollisionsAvg       ExRewardAvg         Range               
+1/200               500                 250.49              10.97               0.38                0.49                0.0                 -87.37              0.1                 
+2/200               1000                258.02              10.94               0.43                0.55                0.0                 -82.49              0.1                 
+3/200               1500                259.08              11.02               0.48                0.21                0.0                 -83.77              0.1                 
+4/200               2000                251.86              12.12               0.4                 0.29                0.0                 -86.41              0.1                 
+5/200               2500                252.87              11.52               0.42                0.31                0.0                 -90.39              0.1                 
+6/200               3000                258.61              12.0                0.39                0.6                 0.0                 -78.0               0.1                 
+7/200               3500                256.55              12.1                0.39                0.38                0.0                 -88.47              0.1                 
+8/200               4000                259.97              12.03               0.38                0.62                0.0                 -76.13              0.1                 
+9/200               4500                256.0               12.08               0.38                0.5                 0.0                 -82.39              0.1                 
+10/200              5000                256.28              12.11               0.38                0.64                0.0                 -82.19              0.1                 
+
+
+Epoch               Episodes            TimeCost(sec)       Actor_Loss          Critic_Loss         Success             CollisionsAvg       ExRewardAvg         Range               
+11/200              5500                255.47              12.03               0.39                0.59                0.0                 -80.26              0.1                 
+12/200              6000                260.85              11.86               0.38                0.97                0.0                 -63.7               0.1                 
+13/200              6500                259.84              11.88               0.38                0.98                0.0                 -63.33              0.1                 
+14/200              7000                260.59              11.87               0.38                0.86                0.01                -65.22              0.1                 
+15/200              7500                261.53              11.81               0.37                0.89                0.0                 -61.08              0.1                 
+16/200              8000                263.26              11.75               0.36                0.71                0.0                 -68.15              0.1                 
+17/200              8500                263.36              11.57               0.35                0.9                 0.0                 -63.71              0.1                 
+18/200              9000                263.05              11.47               0.37                0.98                0.0                 -60.7               0.1                 
+19/200              9500                264.22              11.5                0.38                0.86                0.0                 -66.62              0.1                 
+20/200              10000               263.4               11.81               0.37                0.94                0.0                 -59.99              0.1                 
+
+
+Epoch               Episodes            TimeCost(sec)       Actor_Loss          Critic_Loss         Success             CollisionsAvg       ExRewardAvg         Range               
+21/200              10500               262.72              11.34               0.37                0.71                0.0                 -72.48              0.1                 
+22/200              11000               263.29              11.79               0.35                0.96                0.0                 -62.75              0.1                 
+23/200              11500               266.29              11.65               0.37                0.89                0.0                 -60.65              0.1                 
+24/200              12000               263.95              11.78               0.35                0.89                0.0                 -63.15              0.1                 
+25/200              12500               265.82              11.82               0.36                0.86                0.0                 -66.69              0.1                 
+26/200              13000               266.55              11.75               0.37                0.81                0.0                 -63.12              0.1                 
+27/200              13500               265.22              11.73               0.36                0.88                0.0                 -63.05              0.1                 

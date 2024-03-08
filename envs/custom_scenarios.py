@@ -569,7 +569,7 @@ lift_maze = {
         'min': [1.34, 1.15],
         'max': [1.35, 1.16]
     },
-    # #bfgs target using cma policy
+    # #bfgs target halfway
     # 'target_init_space': {
     #     'min': [1.44, 0.34, 0.42],
     #     'max': [1.45, 0.36, 0.42]
