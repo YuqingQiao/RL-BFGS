@@ -2,11 +2,11 @@ import gymnasium as gym
 
 Robotics_envs_id = [
     'RandDynObstEnv-v1',
-    'Sim2RealEnv-v1'
-    'FrankaDrawerEnv'
-    'FrankaDrawerEnv_2'
-    'FrankaShelfEnv'
-    'FrankaMazeEnv'
+    'Sim2RealEnv-v1',
+    'FrankaDrawerEnv',
+    'FrankaDrawerEnv_2',
+    'FrankaShelfEnv',
+    'FrankaMazeEnv',
     'FrankaObstx2Env'
     # 'Sim2RealEnv-franky'
 ]
