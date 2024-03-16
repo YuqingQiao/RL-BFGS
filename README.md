@@ -15,7 +15,8 @@ fine tune on custom scenario (e.g. lifted_obstacles):
 `train.py --model_path path/to/model/dir --scenario lifted_obst`
 
 For more details please refer to:
-"https://www.notion.so/Getting-Started-751a40e40a7b4763a2655f86d9fccce9"
+
+https://faint-sesame-cef.notion.site/Requirements-66091433bf214e56b4e98248a5de953b?pvs=4
 
 
 
