@@ -1,7 +1,7 @@
 import ctypes
 import numpy as np
 
-lib = ctypes.CDLL('./ik_controller_bfgs/build_rand_obst/libsolve_ik.so')
+lib = ctypes.CDLL('./ik_controller_bfgs/build_sim_2/libsolve_ik.so')
 # choices: build_rand_obst or build_drawer or build_drawer_2
 # these c++ builds are slightly different in the obstacle dimension. dim=3/7/6
 
