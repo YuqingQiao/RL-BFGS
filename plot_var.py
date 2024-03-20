@@ -109,5 +109,5 @@ def plot_training(model_path, epoch):
 
 if __name__ == "__main__":
 
-    plot_training('log2', 300)
+    plot_training('plot', 300)
     plt.show()
